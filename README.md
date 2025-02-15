@@ -1,1 +1,1 @@
-# My Application template
+# Android Project Template
