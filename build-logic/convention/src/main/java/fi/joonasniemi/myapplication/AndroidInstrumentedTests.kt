@@ -22,7 +22,7 @@ internal fun LibraryAndroidComponentsExtension.disableUnnecessaryAndroidTests(
 
 internal fun Project.configureAndroidTests() {
     dependencies {
-        val kotlinTest = libs.findLibrary("kotlin.test").get()
+        val kotlinTest = libs.findLibrary("kotlin-test").get()
 
         add("androidTestImplementation", kotlinTest)
         add("testImplementation", kotlinTest)

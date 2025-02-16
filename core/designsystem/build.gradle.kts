@@ -8,9 +8,9 @@ android {
 }
 
 dependencies {
+    api(libs.androidx.material3)
     api(libs.androidx.ui)
     api(libs.androidx.ui.graphics)
     api(libs.androidx.ui.tooling)
     api(libs.androidx.ui.tooling.preview)
-    api(libs.androidx.material3)
 }
