@@ -1,5 +1,5 @@
 import com.android.build.gradle.LibraryExtension
-import fi.joonasniemi.myapplication.configureAndroidCompose
+import fi.joonasniemi.listcart.configureAndroidCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.myapplication.android.library)
-    alias(libs.plugins.myapplication.android.koin)
+    alias(libs.plugins.listcart.android.library)
+    alias(libs.plugins.listcart.android.koin)
 }
 
 android {
-    namespace = "fi.joonasniemi.myapplication.core.data"
+    namespace = "fi.joonasniemi.listcart.core.data"
 }
 
 dependencies {

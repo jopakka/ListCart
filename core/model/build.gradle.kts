@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.myapplication.android.library)
+    alias(libs.plugins.listcart.android.library)
 }
 
 android {
-    namespace = "fi.joonasniemi.myapplication.core.model"
+    namespace = "fi.joonasniemi.listcart.core.model"
 }
 
 dependencies {

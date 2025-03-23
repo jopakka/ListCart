@@ -1,12 +1,10 @@
 import com.android.build.api.dsl.ApplicationExtension
-import fi.joonasniemi.myapplication.configureAndroidTests
-import fi.joonasniemi.myapplication.configureKotlinAndroid
-import fi.joonasniemi.myapplication.libs
+import fi.joonasniemi.listcart.configureAndroidTests
+import fi.joonasniemi.listcart.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {

@@ -1,14 +1,12 @@
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import fi.joonasniemi.myapplication.configureAndroidTests
-import fi.joonasniemi.myapplication.configureKotlinAndroid
-import fi.joonasniemi.myapplication.disableUnnecessaryAndroidTests
-import fi.joonasniemi.myapplication.libs
+import fi.joonasniemi.listcart.configureAndroidTests
+import fi.joonasniemi.listcart.configureKotlinAndroid
+import fi.joonasniemi.listcart.disableUnnecessaryAndroidTests
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {

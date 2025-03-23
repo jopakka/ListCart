@@ -1,14 +1,14 @@
 plugins {
-    alias(libs.plugins.myapplication.android.application)
-    alias(libs.plugins.myapplication.android.application.compose)
-    alias(libs.plugins.myapplication.android.koin)
+    alias(libs.plugins.listcart.android.application)
+    alias(libs.plugins.listcart.android.application.compose)
+    alias(libs.plugins.listcart.android.koin)
 }
 
 android {
-    namespace = "fi.joonasniemi.myapplication"
+    namespace = "fi.joonasniemi.listcart"
 
     defaultConfig {
-        applicationId = "fi.joonasniemi.myapplication"
+        applicationId = "fi.joonasniemi.listcart"
         versionCode = 1
         versionName = "1.0"
 

@@ -1,6 +1,6 @@
 [versions]
 activityCompose = "1.10.0"
-agp = "8.8.1"
+agp = "8.9.0"
 androidxLifecycle = "2.8.7"
 androidxTestRunner = "1.6.2"
 composeBom = "2025.02.00"
@@ -48,9 +48,9 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 room = { id = "androidx.room", version.ref = "room" }
 
 # Plugins defined by this project
-myapplication-android-application = { id = "myapplication.android.application" }
-myapplication-android-application-compose = { id = "myapplication.android.application.compose" }
-myapplication-android-library = { id = "myapplication.android.library" }
-myapplication-android-library-compose = { id = "myapplication.android.library.compose" }
-myapplication-android-koin = { id = "myapplication.android.koin" }
-myapplication-android-room = { id = "myapplication.android.room" }
+listcart-android-application = { id = "listcart.android.application" }
+listcart-android-application-compose = { id = "listcart.android.application.compose" }
+listcart-android-library = { id = "listcart.android.library" }
+listcart-android-library-compose = { id = "listcart.android.library.compose" }
+listcart-android-koin = { id = "listcart.android.koin" }
+listcart-android-room = { id = "listcart.android.room" }

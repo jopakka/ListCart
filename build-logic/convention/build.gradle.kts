@@ -5,7 +5,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "fi.joonasniemi.myapplication.build_logic"
+group = "fi.joonasniemi.listcart.build_logic"
 
 // Configure the build-logic plugins to target JDK 17
 // This matches the JDK used to build the project, and is not related to what is running on device.
@@ -38,27 +38,27 @@ tasks {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = libs.plugins.myapplication.android.application.asProvider().get().pluginId
+            id = libs.plugins.listcart.android.application.asProvider().get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
         register("androidApplicationCompose") {
-            id = libs.plugins.myapplication.android.application.compose.get().pluginId
+            id = libs.plugins.listcart.android.application.compose.get().pluginId
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
         register("androidLibrary") {
-            id = libs.plugins.myapplication.android.library.asProvider().get().pluginId
+            id = libs.plugins.listcart.android.library.asProvider().get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
         }
         register("androidLibraryCompose") {
-            id = libs.plugins.myapplication.android.library.compose.get().pluginId
+            id = libs.plugins.listcart.android.library.compose.get().pluginId
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("androidRoom") {
-            id = libs.plugins.myapplication.android.room.get().pluginId
+            id = libs.plugins.listcart.android.room.get().pluginId
             implementationClass = "AndroidRoomConventionPlugin"
         }
         register("androidKoin") {
-            id = libs.plugins.myapplication.android.koin.get().pluginId
+            id = libs.plugins.listcart.android.koin.get().pluginId
             implementationClass = "AndroidKoinConventionPlugin"
         }
     }
