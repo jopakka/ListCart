@@ -45,3 +45,6 @@ captures/
 
 # Kotlin
 .kotlin
+
+# Google services
+google-services.json

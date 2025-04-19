@@ -2,6 +2,9 @@
 
 My template for Android projects.
 
+## Preparations
+- Add google-services.json
+
 ## Useful gradle commands
 
 Generate compose compiler metrics and reports:

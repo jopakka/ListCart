@@ -58,8 +58,20 @@ gradlePlugin {
             implementationClass = "AndroidRoomConventionPlugin"
         }
         register("androidKoin") {
-            id = libs.plugins.listcart.android.koin.get().pluginId
+            id = libs.plugins.listcart.android.koin.asProvider().get().pluginId
             implementationClass = "AndroidKoinConventionPlugin"
+        }
+        register("androidKoinCompose") {
+            id = libs.plugins.listcart.android.koin.compose.get().pluginId
+            implementationClass = "AndroidKoinComposeConventionPlugin"
+        }
+        register("androidFeature") {
+            id = libs.plugins.listcart.feature.get().pluginId
+            implementationClass = "ListCartFeaturePlugin"
+        }
+        register("kotlinxSerialization") {
+            id = libs.plugins.listcart.kotlinxSerialization.get().pluginId
+            implementationClass = "KotlinxSerializationConventionPlugin"
         }
     }
 }

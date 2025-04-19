@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.listcart.android.application)
     alias(libs.plugins.listcart.android.application.compose)
     alias(libs.plugins.listcart.android.koin)
+    alias(libs.plugins.listcart.kotlinxSerialization)
 }
 
 android {
@@ -24,14 +25,25 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
+    implementation(projects.core.common)
     implementation(projects.core.data)
     implementation(projects.core.designsystem)
     implementation(projects.core.model)
 
+    implementation(projects.feature.auth)
+    implementation(projects.feature.lists)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.splashscreen)
+    implementation(libs.napier)
 }
