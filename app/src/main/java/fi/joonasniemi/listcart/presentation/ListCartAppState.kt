@@ -53,6 +53,7 @@ class ListCartAppState(
             // on the back stack as users select items
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
+                inclusive = true
             }
             // Avoid multiple copies of the same destination when
             // reselecting the same item

@@ -9,6 +9,7 @@ val appModule = module {
         dataDiModule,
         featureAuthDiModule,
         listsModule,
+        listViewModule,
     )
     viewModelOf(::MainActivityViewModel)
 }

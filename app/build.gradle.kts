@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.listcart.android.application.compose)
     alias(libs.plugins.listcart.android.koin)
     alias(libs.plugins.listcart.kotlinxSerialization)
+    alias(libs.plugins.listcart.firebase.application)
 }
 
 android {
@@ -39,6 +40,7 @@ dependencies {
 
     implementation(projects.feature.auth)
     implementation(projects.feature.lists)
+    implementation(projects.feature.listview)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)

@@ -73,5 +73,13 @@ gradlePlugin {
             id = libs.plugins.listcart.kotlinxSerialization.get().pluginId
             implementationClass = "KotlinxSerializationConventionPlugin"
         }
+        register("firebase") {
+            id = libs.plugins.listcart.firebase.application.get().pluginId
+            implementationClass = "FirebaseConventionPlugin"
+        }
+        register("firebaseLibrary") {
+            id = libs.plugins.listcart.firebase.library.get().pluginId
+            implementationClass = "FirebaseLibraryConventionPlugin"
+        }
     }
 }

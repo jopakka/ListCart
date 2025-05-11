@@ -3,14 +3,15 @@ package fi.joonasniemi.listcart.presentation
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import fi.joonasniemi.listcart.MainState
+import fi.joonasniemi.listcart.feature.listview.ListInfo
 import fi.joonasniemi.listcart.navigation.AppTopLevelDestination
 import fi.joonasniemi.listcart.navigation.authNavigation
 import fi.joonasniemi.listcart.navigation.listCartAppNavigation
+import fi.joonasniemi.listcart.navigation.listViewNavigation
+import fi.joonasniemi.listcart.navigation.navigateToListView
 import io.github.aakira.napier.Napier
 
 @Composable
@@ -47,6 +48,17 @@ fun ListCartApp(
             }
         )
 
-        listCartAppNavigation()
+        listCartAppNavigation(
+            onNavigateToList = {
+                listCartAppState.navController.navigateToListView(
+                    ListInfo(
+                        id = it.id,
+                        name = it.name,
+                    )
+                )
+            },
+        )
+
+        listViewNavigation()
     }
 }

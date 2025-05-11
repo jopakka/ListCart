@@ -1,6 +1,5 @@
-package fi.joonasniemi.listcart.feature.lists
+package fi.joonasniemi.listcart.feature.listview
 
-import android.icu.text.SimpleDateFormat
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,44 +24,32 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import fi.joonasniemi.listcart.core.designsystem.theme.ListCartTheme
+import fi.joonasniemi.listcart.core.model.data.ShoppingItem
 import fi.joonasniemi.listcart.core.model.data.ShoppingList
-import io.github.aakira.napier.Napier
 import org.koin.androidx.compose.koinViewModel
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.Date
-import java.util.Locale
 
 @Composable
-fun ListsRoot(
-    onNavigateToList: (ShoppingList) -> Unit,
-    viewModel: ListsViewModel = koinViewModel(),
+fun ListViewRoot(
+    viewModel: ListViewViewModel = koinViewModel(),
 ) {
-    val lists by viewModel.shoppingLists.collectAsStateWithLifecycle()
+    val listInfo by viewModel.listInfo.collectAsStateWithLifecycle()
+    val listItems by viewModel.listItems.collectAsStateWithLifecycle()
 
-    ListsScreen(
-        lists = lists,
-        onNavigateToList = {
-            Napier.d("Navigate to list $it")
-            onNavigateToList(it)
-        },
+    ListViewScreen(
+        listInfo = listInfo,
+        listItems = listItems,
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun ListsScreen(
-    lists: List<ShoppingList>,
-    onNavigateToList: (ShoppingList) -> Unit,
+fun ListViewScreen(
+    listInfo: ListInfo,
+    listItems: List<ShoppingItem>,
 ) {
     Scaffold(
         contentWindowInsets = WindowInsets.safeDrawing,
@@ -79,7 +66,7 @@ internal fun ListsScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text("List Cart")
+                    Text(listInfo.name)
                 },
             )
         },
@@ -89,10 +76,9 @@ internal fun ListsScreen(
             contentPadding = paddingValues,
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(lists) {
+            items(listItems) {
                 ListItem(
-                    shoppingList = it,
-                    onNavigateToList = onNavigateToList,
+                    item = it,
                 )
             }
         }
@@ -103,18 +89,12 @@ private val itemShape = RoundedCornerShape(8.dp)
 
 @Composable
 private fun ListItem(
-    shoppingList: ShoppingList,
-    onNavigateToList: (ShoppingList) -> Unit,
+    item: ShoppingItem,
 ) {
-    val createdAt = rememberDateTime(shoppingList.createdAt)
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .clip(itemShape)
-            .clickable(onClick = {
-                onNavigateToList(shoppingList)
-            })
             .background(MaterialTheme.colorScheme.surfaceContainer)
             .border(2.dp, MaterialTheme.colorScheme.outline, itemShape)
             .defaultMinSize(minHeight = 48.dp)
@@ -122,31 +102,7 @@ private fun ListItem(
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
-            text = shoppingList.name,
-        )
-        Text(
-            text = createdAt,
-        )
-    }
-}
-
-@Composable
-private fun rememberDateTime(value: Long): String = remember(value) {
-    val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault())
-    formatter.format(value)
-}
-
-@Preview
-@Composable
-private fun ListsScreenPreview() {
-    ListCartTheme {
-        ListsScreen(
-            lists = buildList {
-                repeat(10) {
-                    add(ShoppingList(it.toString(), "List $it", it - 1L))
-                }
-            },
-            onNavigateToList = {},
+            text = item.name,
         )
     }
 }

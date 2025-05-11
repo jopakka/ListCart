@@ -5,7 +5,7 @@ import fi.joonasniemi.listcart.core.model.data.ShoppingList
 import kotlinx.coroutines.flow.Flow
 
 interface ShoppingListRepository {
-    fun shoppingLists(): Flow<List<ShoppingList>>
+    val shoppingLists: Flow<List<ShoppingList>>
 
     fun shoppingListItems(shoppingListId: String): Flow<List<ShoppingItem>>
 }

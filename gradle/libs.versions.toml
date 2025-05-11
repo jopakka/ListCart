@@ -51,6 +51,7 @@ napier = { group = "io.github.aakira", name = "napier", version.ref = "napier" }
 # Firebase
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
 
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 compose-gradlePlugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
@@ -81,4 +82,6 @@ listcart-android-koin = { id = "listcart.android.koin" }
 listcart-android-koin-compose = { id = "listcart.android.koin.compose" }
 listcart-android-room = { id = "listcart.android.room" }
 listcart-feature = { id = "listcart.feature" }
+listcart-firebase-application = { id = "listcart.firebase.application" }
+listcart-firebase-library = { id = "listcart.firebase.library" }
 listcart-kotlinxSerialization = { id = "listcart.kotlinxSerialization" }

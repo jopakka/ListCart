@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.listcart.android.library)
     alias(libs.plugins.listcart.android.koin)
-    alias(libs.plugins.google.services)
+    alias(libs.plugins.listcart.firebase.library)
+    alias(libs.plugins.listcart.kotlinxSerialization)
 }
 
 android {
@@ -11,7 +12,5 @@ android {
 dependencies {
     implementation(projects.core.model)
 
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
     implementation(libs.napier)
 }

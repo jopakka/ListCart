@@ -4,8 +4,12 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
+import fi.joonasniemi.listcart.core.model.data.ShoppingList
 import fi.joonasniemi.listcart.feature.auth.AuthRoot
 import fi.joonasniemi.listcart.feature.lists.ListsRoot
+import fi.joonasniemi.listcart.feature.listview.ListInfo
+import fi.joonasniemi.listcart.feature.listview.ListViewRoot
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -33,8 +37,21 @@ fun NavHostController.navigateToListCartApp(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.listCartAppNavigation(
+    onNavigateToList: (ShoppingList) -> Unit,
 ) {
     composable<ListCartAppNavigation> {
-        ListsRoot()
+        ListsRoot(
+            onNavigateToList = onNavigateToList,
+        )
+    }
+}
+
+fun NavHostController.navigateToListView(info: ListInfo, navOptions: NavOptions? = null) {
+    navigate(info, navOptions)
+}
+
+fun NavGraphBuilder.listViewNavigation() {
+    composable<ListInfo> {
+        ListViewRoot()
     }
 }

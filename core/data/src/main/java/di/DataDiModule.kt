@@ -2,6 +2,9 @@ package di
 
 import fi.joonasniemi.listcart.core.data.auth.AuthRepository
 import fi.joonasniemi.listcart.core.data.auth.FirebaseAuthRepository
+import fi.joonasniemi.listcart.core.data.shoppinglist.FirestoreShoppingListDataSource
+import fi.joonasniemi.listcart.core.data.shoppinglist.FirestoreShoppingListRepository
+import fi.joonasniemi.listcart.core.data.shoppinglist.ShoppingListRepository
 import fi.joonasniemi.listcart.core.data.userconfig.LocalUserConfigRepository
 import fi.joonasniemi.listcart.core.data.userconfig.UserConfigRepository
 import org.koin.core.module.dsl.singleOf
@@ -12,4 +15,6 @@ val dataDiModule = module {
     includes(firebaseDiModule)
     singleOf(::FirebaseAuthRepository) bind AuthRepository::class
     singleOf(::LocalUserConfigRepository) bind UserConfigRepository::class
+    singleOf(::FirestoreShoppingListDataSource)
+    singleOf(::FirestoreShoppingListRepository) bind ShoppingListRepository::class
 }

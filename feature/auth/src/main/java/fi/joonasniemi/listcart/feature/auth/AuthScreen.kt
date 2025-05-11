@@ -47,7 +47,9 @@ fun AuthRoot(
 
     LaunchedEffect(Unit) { viewModel.run() }
 
-    LaunchedEffect(state.isLoginSuccess) { onAuthenticated() }
+    LaunchedEffect(state.isLoginSuccess) {
+        if (state.isLoginSuccess) onAuthenticated()
+    }
 
     AuthScreen(
         state = state,
